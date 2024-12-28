@@ -14,6 +14,13 @@ public protocol Style {
 }
 
 public protocol StyleFonts {
+    var headline1: Font { get }
+    var headline2: Font { get }
+    var headline3: Font { get }
+    var large: Font { get }
+    var medium: Font { get }
+    var small: Font { get }
+    var bottomNavigation: Font { get }
 }
 
 public protocol StyleColors {
