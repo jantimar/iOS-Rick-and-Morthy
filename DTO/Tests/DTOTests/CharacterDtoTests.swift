@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import DTO
+@testable import Models
 
 final class CharacterDtoTests: XCTestCase {
 
@@ -83,6 +84,59 @@ final class CharacterDtoTests: XCTestCase {
         XCTAssertEqual(morty.episode, decodedMorty.episode)
         XCTAssertEqual(morty.url, decodedMorty.url)
         XCTAssertEqual(morty.created, decodedMorty.created)
+    }
+
+    func testMapToModel() {
+        let mortyDto = CharacterDto(
+            id: 2,
+            name: "Morty Smith",
+            status: "Alive",
+            species: "Human",
+            type: "",
+            gender: "Male",
+            origin: .init(
+                id: nil,
+                name: "Earth",
+                type: nil,
+                dimension: nil,
+                residents: nil,
+                url: "https://rickandmortyapi.com/api/location/1",
+                created: nil
+            ),
+            location: .init(
+                id: nil,
+                name: "Earth",
+                type: nil,
+                dimension: nil,
+                residents: nil,
+                url: "https://rickandmortyapi.com/api/location/20",
+                created: nil
+            ),
+            image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+            episode: [
+                "https://rickandmortyapi.com/api/episode/1",
+                "https://rickandmortyapi.com/api/episode/2"
+            ],
+            url: "https://rickandmortyapi.com/api/character/2",
+            created: "2017-11-04T18:50:21.651Z"
+        )
+
+        let morty = Character(from: mortyDto)
+
+        XCTAssertEqual(morty.id, 2)
+        XCTAssertEqual(morty.name, "Morty Smith")
+        XCTAssertEqual(morty.status, .alive)
+        XCTAssertEqual(morty.species, "Human")
+        XCTAssertEqual(morty.type, "")
+        XCTAssertEqual(morty.gender, .male)
+        XCTAssertEqual(morty.origin?.name, "Earth")
+        XCTAssertEqual(morty.origin?.url?.absoluteString, "https://rickandmortyapi.com/api/location/1")
+        XCTAssertEqual(morty.location?.name, "Earth")
+        XCTAssertEqual(morty.location?.url?.absoluteString, "https://rickandmortyapi.com/api/location/20")
+        XCTAssertEqual(morty.image, "https://rickandmortyapi.com/api/character/avatar/2.jpeg")
+        XCTAssertEqual(morty.episode?.count, 2)
+        XCTAssertEqual(morty.url?.absoluteString, "https://rickandmortyapi.com/api/character/2")
+        XCTAssertEqual(morty.created?.timeIntervalSince1970, 1509821421.651)
     }
 }
 

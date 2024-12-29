@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Models
+import Utils
 
 public struct CharacterDto: Codable {
     // The id of the character.
@@ -32,5 +34,24 @@ public struct CharacterDto: Codable {
     public let url: String?
     // Time at which the character was created in the database.
     public let created: String?
+}
 
+
+extension Character {
+    public init(from dto: CharacterDto) {
+        self.init(
+            id: dto.id,
+            name: dto.name,
+            status: dto.status.map(CharacterStatus.init(rawValue:)) ?? .unknown,
+            species: dto.species,
+            type: dto.type,
+            gender: dto.gender.map(CharacterGender.init(rawValue:)) ?? .unknown,
+            origin: dto.origin.map(Location.init(from:)),
+            location: dto.location.map(Location.init(from:)),
+            image: dto.image,
+            episode: dto.episode?.compactMap { URL(string: $0) },
+            url: URL(string: dto.url ?? ""),
+            created: dto.created?.iso8601Date()
+        )
+    }
 }

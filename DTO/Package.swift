@@ -11,12 +11,17 @@ let package = Package(
             name: "DTO",
             targets: ["DTO"]),
     ],
+    dependencies: [
+        .package(name: "Models", path: "Models"),
+        .package(name: "Utils", path: "Utils")
+    ],
     targets: [
         .target(
-            name: "DTO"),
+            name: "DTO",
+            dependencies: ["Models", "Utils"]),
         .testTarget(
             name: "DTOTests",
-            dependencies: ["DTO"]
+            dependencies: ["DTO", "Models", "Utils"]
         ),
     ]
 )

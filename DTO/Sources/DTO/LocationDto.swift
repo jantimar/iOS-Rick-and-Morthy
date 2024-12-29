@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Models
+import Utils
 
 public struct LocationDto: Codable {
     /// The id of the location.
@@ -22,4 +24,18 @@ public struct LocationDto: Codable {
     public let url: String?
     /// Time at which the location was created in the database.
     public let created: String?
+}
+
+extension Location {
+    public init(from dto: LocationDto) {
+        self.init(
+            id: dto.id,
+            name: dto.name,
+            type: dto.type,
+            dimension: dto.dimension,
+            residents: dto.residents?.compactMap { URL(string: $0) },
+            url: URL(string: dto.url ?? ""),
+            created: dto.created?.iso8601Date()
+        )
+    }
 }
