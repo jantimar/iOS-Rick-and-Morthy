@@ -43,5 +43,7 @@ public protocol StyleOffsets {
     var extraSmall: CGFloat { get }
     var small: CGFloat { get }
     var medium: CGFloat { get }
-    var extreme: CGFloat { get }
+    var large: CGFloat { get }
+    var extraLarge: CGFloat { get }
+    var extraExtraLarge: CGFloat { get }
 }
