@@ -63,3 +63,5 @@ public struct Character {
         self.created = created
     }
 }
+
+extension Character: Equatable, Hashable { }

@@ -43,3 +43,5 @@ public struct Location {
         self.created = created
     }
 }
+
+extension Location: Equatable, Hashable { }
