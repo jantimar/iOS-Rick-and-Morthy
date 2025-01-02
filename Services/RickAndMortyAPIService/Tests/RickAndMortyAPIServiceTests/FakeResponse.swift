@@ -12,7 +12,7 @@ public enum FakeResponse {
 
     init?(requst: URLRequest) {
         switch requst.url?.pathComponents {
-        case ["/", "episode"]:
+        case ["/", "api", "episode"]:
             self = .episodes
         default:
             print("COMPONENTS: \(requst.url?.pathComponents.description ?? "")")

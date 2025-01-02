@@ -12,7 +12,7 @@ import Models
 import DTO
 
 extension RickAndMortyAPIService: RickAndMortyAPIServiceEpisodeProcotol {
-    /// You can access the list of locations by using the /location endpoint.
+    /// You can access the list of episodes by using the /episode endpoint.
     public func episode(id: Int) -> AnyPublisher<Episode, APIError> {
         let resource: Resource = .episode(baseURL, id: id)
         return fetch(with: resource)
@@ -20,7 +20,7 @@ extension RickAndMortyAPIService: RickAndMortyAPIServiceEpisodeProcotol {
             .eraseToAnyPublisher()
     }
 
-    /// You can get a single location by adding the id as a parameter: /location/3
+    /// You can get a single episode by adding the id as a parameter: /episode/28
     public func episodes(page: Int) -> AnyPublisher<Page<Episode>, APIError> {
         let resource: Resource = .episodes(baseURL, page: page)
         return fetch(with: resource)

@@ -21,7 +21,7 @@ extension Resource {
         .init(
             url: baseUrl,
             method: .get,
-            path: "/episode",
+            path: "/api/episode",
             queryItems: [
                 "page": .integer(page),
                 "name": .string(name),
@@ -38,7 +38,7 @@ extension Resource {
         .init(
             url: baseUrl,
             method: .get,
-            path: "/episode/\(id)"
+            path: "/api/episode/\(id)"
         )
     }
 }

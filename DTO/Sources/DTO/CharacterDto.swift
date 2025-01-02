@@ -48,7 +48,7 @@ extension Character {
             gender: dto.gender.map(CharacterGender.init(rawValue:)) ?? .unknown,
             origin: dto.origin.map(Location.init(from:)),
             location: dto.location.map(Location.init(from:)),
-            image: dto.image,
+            image: URL(string: dto.image ?? ""),
             episode: dto.episode?.compactMap { URL(string: $0) },
             url: URL(string: dto.url ?? ""),
             created: dto.created?.iso8601Date()

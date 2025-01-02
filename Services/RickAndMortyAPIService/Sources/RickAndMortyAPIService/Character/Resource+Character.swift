@@ -8,6 +8,7 @@
 import Foundation
 import APIService
 import Models
+import Utils
 
 extension Resource {
 
@@ -24,7 +25,7 @@ extension Resource {
         .init(
             url: baseUrl,
             method: .get,
-            path: "/characters",
+            path: "/api/character",
             queryItems: [
                 "page": .integer(page),
                 "name": .string(name),
@@ -44,22 +45,23 @@ extension Resource {
         .init(
             url: baseUrl,
             method: .get,
-            path: "/characters/\(id)"
+            path: "/api/character/\(id)"
         )
     }
 
+    /// You can get multiple characters by adding an array of ids as parameter: /character/[1,2,3] or /character/1,2,3
     static func characters(
         _ baseUrl: String,
-        search: String,
-        page: Int? = nil
+        ids: [Int]
     ) -> Resource {
-        .init(
+        let idsQuery = ids
+            .map(\.string)
+            .joined(separator: ",")
+
+        return .init(
             url: baseUrl,
             method: .get,
-            path: "/characters/?\(search)",
-            queryItems: [
-                "page": .integer(page)
-            ]
+            path: "/api/character/\(idsQuery)"
         )
     }
 }

@@ -133,7 +133,7 @@ final class CharacterDtoTests: XCTestCase {
         XCTAssertEqual(morty.origin?.url?.absoluteString, "https://rickandmortyapi.com/api/location/1")
         XCTAssertEqual(morty.location?.name, "Earth")
         XCTAssertEqual(morty.location?.url?.absoluteString, "https://rickandmortyapi.com/api/location/20")
-        XCTAssertEqual(morty.image, "https://rickandmortyapi.com/api/character/avatar/2.jpeg")
+        XCTAssertEqual(morty.image?.absoluteString, "https://rickandmortyapi.com/api/character/avatar/2.jpeg")
         XCTAssertEqual(morty.episode?.count, 2)
         XCTAssertEqual(morty.url?.absoluteString, "https://rickandmortyapi.com/api/character/2")
         XCTAssertEqual(morty.created?.timeIntervalSince1970, 1509821421.651)
