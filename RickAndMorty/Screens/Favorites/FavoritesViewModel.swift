@@ -37,6 +37,7 @@ final class FavoritesViewModel {
     private func setup() {
         let apiService = self.apiService
 
+        // Fetch current data from API, in case it failed, let a show data from DB
         charactersValueSubject
             .map { $0.map(\.id).sorted() }
             .removeDuplicates()
@@ -53,6 +54,7 @@ final class FavoritesViewModel {
             )
             .store(in: &disposBag)
 
+        // Sort and updata data from Current value subject to published property
         charactersValueSubject
             .map { $0.sorted(by: { $0.id < $1.id }) }
             .sink(receiveValue: { [weak self] characters in

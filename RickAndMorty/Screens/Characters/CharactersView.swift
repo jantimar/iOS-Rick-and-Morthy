@@ -21,11 +21,11 @@ struct CharactersView: View {
     var body: some View {
         ZStack {
             switch viewModel.characters {
-            case let .failure(text):
-                TextView(text, type: .large)
-                    .foregroundStyle(style.colors.foregroundsTertiary)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-
+            case let .failure(text, isRetryEnabled):
+                ErrorView(
+                    text: text,
+                    action: isRetryEnabled ? viewModel.refresh : nil
+                )
             case let .data(charactes),
                     let .refreshing(charactes):
                 TableView(
@@ -78,4 +78,4 @@ struct CharactersView: View {
     }
 }
 
-extension Character: Identifiable { }
+extension Character: @retroactive Identifiable { }

@@ -11,6 +11,7 @@ import RickAndMortyAPIService
 import Models
 import DatabaseService
 import Locs
+import APIService
 
 @Observable
 final class CharactersViewModel {
@@ -87,8 +88,12 @@ final class CharactersViewModel {
             .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
-                    if case .failure = completion {
-                        self?.characters = .failure(localize(.errorNoCharactersResults))
+                    if case let .failure(error) = completion {
+                        if error is APIError {
+                            self?.characters = .failure(localize(.errorNetwork), retry: true)
+                        } else {
+                            self?.characters = .failure(localize(.errorNoCharactersResults))
+                        }
                     }
                 },
                 receiveValue: { [weak self] data in

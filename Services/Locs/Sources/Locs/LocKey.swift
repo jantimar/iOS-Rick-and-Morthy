@@ -27,6 +27,8 @@ public enum LocKey: String {
     // Errors
     case errorNoFavorites = "error.no_favorites"
     case errorNoCharactersResults = "error.no_characters_results"
+    case errorNetwork = "error.network"
+    case errorRetry = "error.retry"
 
     // Other
     case characterStatusAlive = "character_status.alive"

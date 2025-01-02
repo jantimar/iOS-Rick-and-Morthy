@@ -10,8 +10,9 @@ import RickAndMortyAPIService
 import DatabaseService
 
 final class InjectionContainer {
-
+    /// API service for comunication with Rick & Morty backand
     let apiService: RickAndMortyAPIServiceProtocol
+    /// Database service for store all favorites characters
     let favoritesDatabaseService: DatabaseServiceProtocol?
 
     @MainActor

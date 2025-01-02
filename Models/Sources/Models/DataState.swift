@@ -11,7 +11,7 @@ public enum DataState<T> {
     case loading
     case data(T)
     case refreshing(T)
-    case failure(String)
+    case failure(String, retry: Bool = false)
     case unknown
 
     public var data: T? {

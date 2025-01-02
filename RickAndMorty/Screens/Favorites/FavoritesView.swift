@@ -14,17 +14,14 @@ import Organisms
 import Locs
 
 struct FavoritesView: View {
-
     @Environment(\.style) private var style
     @State var viewModel: FavoritesViewModel
 
     var body: some View {
         ZStack {
             switch viewModel.characters {
-            case let .failure(text):
-                TextView(text, type: .large)
-                    .foregroundStyle(style.colors.foregroundsTertiary)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            case let .failure(text, _):
+                ErrorView(text: text)
             case let .data(charactes),
                     let .refreshing(charactes):
                 TableView(
