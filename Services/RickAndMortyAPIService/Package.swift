@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "RickAndMortyAPIService",
-            targets: ["RickAndMortyAPIService"]),
+            targets: ["RickAndMortyAPIService"])
     ],
     dependencies: [
         .package(name: "Models", path: "../Models"),
@@ -23,6 +23,6 @@ let package = Package(
         .testTarget(
             name: "RickAndMortyAPIServiceTests",
             dependencies: ["RickAndMortyAPIService", "Models", "DTO", "APIService"]
-        ),
+        )
     ]
 )

@@ -26,7 +26,8 @@ public struct CharacterDto: Codable {
     public let origin: LocationDto?
     // Name and link to the character's last known location endpoint.
     public let location: LocationDto?
-    // Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
+    // Link to the character's image. All images are 300x300px and most are medium shots
+    // or portraits since they are intended to be used as avatars.
     public let image: String?
     // List of episodes in which this character appeared.
     public let episode: [String]?
@@ -35,7 +36,6 @@ public struct CharacterDto: Codable {
     // Time at which the character was created in the database.
     public let created: String?
 }
-
 
 extension Character {
     public init(from dto: CharacterDto) {

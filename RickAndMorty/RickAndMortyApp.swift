@@ -15,7 +15,9 @@ import Organisms
 @main
 struct RickAndMortyApp: App {
     @Environment(\.style) private var style
-    @Bindable private var router = Router(injection: .init())
+    @Bindable private var router = Router(
+        injection: .init(configuration: Configuration())
+    )
 
     var body: some Scene {
         WindowGroup {

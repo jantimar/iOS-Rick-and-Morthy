@@ -23,7 +23,7 @@ public enum FakeResponse {
     var data: Data? {
         switch self {
         case .episodes:
-            return """
+            return Data("""
                 {
                 "info": {
                 "count": 51,
@@ -46,7 +46,7 @@ public enum FakeResponse {
                 },
                 ]
                 }
-                """.data(using: .utf8)
+                """.utf8)
         default:
             return nil
         }

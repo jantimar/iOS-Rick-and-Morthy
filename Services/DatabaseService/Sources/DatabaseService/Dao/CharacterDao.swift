@@ -30,7 +30,8 @@ final class CharacterDao {
     // Name and link to the character's last known location endpoint.
     @Relationship(deleteRule: .cascade)
     var location: LocationDao?
-    // Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
+    // Link to the character's image. All images are 300x300px and most are medium shots
+    // or portraits since they are intended to be used as avatars.
     var image: String?
     // Link to the character's own URL endpoint.
     var url: String?
@@ -51,7 +52,6 @@ final class CharacterDao {
         self.created = character.created
     }
 }
-
 
 extension Character {
     init(from dao: CharacterDao) {

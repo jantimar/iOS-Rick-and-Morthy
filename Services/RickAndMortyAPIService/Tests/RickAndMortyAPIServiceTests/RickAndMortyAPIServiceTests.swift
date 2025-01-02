@@ -54,7 +54,6 @@ final class RickAndMortyAPIServiceTests: XCTestCase {
         XCTAssertEqual(episodes?.info?.next, "https://rickandmortyapi.com/api/episode?page=2")
         XCTAssertEqual(episodes?.info?.prev, nil)
 
-
         XCTAssertEqual(episodes?.results.first?.id, 1)
         XCTAssertEqual(episodes?.results.first?.name, "Pilot")
         XCTAssertEqual(episodes?.results.first?.airDate, "December 2, 2013")

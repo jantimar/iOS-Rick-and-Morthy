@@ -59,7 +59,6 @@ extension DatabaseService: @preconcurrency DatabaseServiceProtocol {
         }
     }
 
-
     public func insert(character: Character) throws {
         let model = CharacterDao(character: character)
         context.insert(model)

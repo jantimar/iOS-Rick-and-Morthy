@@ -22,4 +22,3 @@ enum BottomBarButton: Int, CaseIterable, BottomBarButtonProtocol {
 
     var id: Int { rawValue }
 }
-

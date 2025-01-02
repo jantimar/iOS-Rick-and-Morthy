@@ -8,7 +8,6 @@
 import Foundation
 import APIService
 
-
 extension Resource {
 
     /// You can access the list of episodes by using the /episode endpoint.

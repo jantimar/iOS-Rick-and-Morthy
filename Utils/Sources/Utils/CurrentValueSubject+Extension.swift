@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+@preconcurrency import Combine
 import SwiftUI
 
 extension CurrentValueSubject {
@@ -17,4 +17,3 @@ extension CurrentValueSubject {
         )
     }
 }
-

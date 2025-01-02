@@ -71,7 +71,8 @@ extension URLRequest {
                 header += "-H \"\(key): \(value)\" \(complement)"
             }
         }
-        if let bodyData = self.httpBody, let bodyString = String(data: bodyData, encoding: .utf8) {
+        if let bodyData = self.httpBody {
+            let bodyString = String(decoding: bodyData, as: UTF8.self)
             data = "-d \"\(bodyString)\" \(complement)"
         }
         let command = "curl -i " + complement + method + header + data + url

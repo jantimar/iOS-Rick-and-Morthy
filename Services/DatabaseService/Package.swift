@@ -9,10 +9,10 @@ let package = Package(
     products: [
         .library(
             name: "DatabaseService",
-            targets: ["DatabaseService"]),
+            targets: ["DatabaseService"])
     ],
     dependencies: [
-        .package(name: "Models", path: "../Models"),
+        .package(name: "Models", path: "../Models")
     ],
     targets: [
         .target(
@@ -21,6 +21,6 @@ let package = Package(
         .testTarget(
             name: "DatabaseServiceTests",
             dependencies: ["DatabaseService"]
-        ),
+        )
     ]
 )

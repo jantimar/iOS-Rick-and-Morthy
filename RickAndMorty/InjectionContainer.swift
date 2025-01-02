@@ -15,9 +15,8 @@ final class InjectionContainer {
     let favoritesDatabaseService: DatabaseServiceProtocol?
 
     @MainActor
-    init() {
-        // TODO: Move to configurations file
-        self.apiService = RickAndMortyAPIService(baseURL: "https://rickandmortyapi.com")
+    init(configuration: Configuration) {
+        self.apiService = RickAndMortyAPIService(baseURL: configuration.baseUrl)
         self.favoritesDatabaseService = DatabaseService()
     }
 }

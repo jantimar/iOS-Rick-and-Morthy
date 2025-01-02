@@ -55,7 +55,7 @@ final class CharactersViewModel {
             .dropFirst()
             .debounce(for: 0.3, scheduler: RunLoop.main)
             .removeDuplicates()
-            .sink(receiveValue: { [weak self] query in
+            .sink(receiveValue: { [weak self] _ in
                 self?.page = 1
                 self?.fetchNextPage()
             })

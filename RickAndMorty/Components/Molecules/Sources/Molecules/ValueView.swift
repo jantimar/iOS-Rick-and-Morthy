@@ -40,7 +40,6 @@ public struct ValueView: View {
         self.value = value
     }
 
-
     public init(_ key: LocKey, _ value: String?) {
         self.name = localize(key)
         self.value = value

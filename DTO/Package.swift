@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "DTO",
-            targets: ["DTO"]),
+            targets: ["DTO"])
     ],
     dependencies: [
         .package(name: "Models", path: "Models"),
@@ -22,6 +22,6 @@ let package = Package(
         .testTarget(
             name: "DTOTests",
             dependencies: ["DTO", "Models", "Utils"]
-        ),
+        )
     ]
 )

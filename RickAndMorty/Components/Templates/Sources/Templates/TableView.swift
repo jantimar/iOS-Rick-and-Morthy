@@ -25,7 +25,7 @@ public struct TableView<T: Identifiable, Cell: View, Footer: View>: View {
                         label: { cell(item, isSearching) }
                     )
                 }
-                
+
                 footer
             }
             .animation(.default, value: isSearching)

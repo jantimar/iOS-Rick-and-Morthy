@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "APIService",
-            targets: ["APIService"]),
+            targets: ["APIService"])
     ],
     dependencies: [
         .package(name: "DTO", path: "../DTO"),
@@ -22,6 +22,6 @@ let package = Package(
         .testTarget(
             name: "APIServiceTests",
             dependencies: ["APIService"]
-        ),
+        )
     ]
 )

@@ -62,7 +62,6 @@ public extension APIService {
         case let .failure(error):
             return Fail(error: error).eraseToAnyPublisher()
         case let .success(request):
-            let stackTrace = Thread.callStackSymbols
             return fetch(
                 urlRequest: request,
                 resource: resource,
@@ -84,7 +83,6 @@ public extension APIService {
         case let .failure(error):
             return Fail(error: error).eraseToAnyPublisher()
         case let .success(request):
-            let stackTrace = Thread.callStackSymbols
             return fetch(
                 urlRequest: request,
                 resource: resource,
@@ -107,7 +105,6 @@ public extension APIService {
         case let .failure(error):
             return Fail(error: error).eraseToAnyPublisher()
         case let .success(request):
-            let stackTrace = Thread.callStackSymbols
             return fetch(
                 urlRequest: request,
                 resource: resource,
@@ -128,7 +125,6 @@ public extension APIService {
         case let .failure(error):
             return Fail(error: error).eraseToAnyPublisher()
         case let .success(request):
-            let stackTrace = Thread.callStackSymbols
             return fetch(
                 urlRequest: request,
                 resource: resource,
@@ -169,12 +165,7 @@ private extension APIService {
         headers: [String: String] = [:],
         output: URLSession.DataTaskPublisher.Output
     ) -> AnyPublisher<URLSession.DataTaskPublisher.Output, APIError> {
-        guard let httpResponse = output.response as? HTTPURLResponse else {
-            return Fail(error: .network("Response is not HTTPURLResponse"))
-                .eraseToAnyPublisher()
-        }
-
-        return Just(output)
+        Just(output)
             .setFailureType(to: APIError.self)
             .eraseToAnyPublisher()
     }
