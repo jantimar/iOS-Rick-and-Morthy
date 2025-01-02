@@ -10,5 +10,5 @@ import Foundation
 public enum CharacterStatus: String {
     case alive = "Alive"
     case dead = "Dead"
-    case unknown
+    case unknown = "Unknown"
 }

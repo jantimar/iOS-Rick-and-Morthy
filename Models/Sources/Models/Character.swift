@@ -25,7 +25,7 @@ public struct Character {
     // Name and link to the character's last known location endpoint.
     public let location: Location?
     // Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
-    public let image: String?
+    public let image: URL?
     // List of episodes in which this character appeared.
     public let episode: [URL]?
     // Link to the character's own URL endpoint.
@@ -44,7 +44,7 @@ public struct Character {
         gender: CharacterGender? = .unknown,
         origin: Location? = nil,
         location: Location? = nil,
-        image: String? = nil,
+        image: URL? = nil,
         episode: [URL]? = nil,
         url: URL? = nil,
         created: Date? = nil
