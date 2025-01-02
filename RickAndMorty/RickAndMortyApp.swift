@@ -6,27 +6,41 @@
 //
 
 import SwiftUI
-import SwiftData
+import Style
+import Templates
+import Atoms
+import Molecules
+import Organisms
 
 @main
 struct RickAndMortyApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @Environment(\.style) private var style
+    @Environment(\.colorScheme) private var colorScheme
+    @Bindable private var router = Router(
+        injection: .init(configuration: Configuration())
+    )
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $router.path) {
+                switch router.root {
+                case .home:
+                    router.home()
+                        .navigationDestination(for: Path.self) { path in
+                            switch path {
+                            case let .character(character):
+                                router.character(character)
+                            }
+                        }
+                        .toolbarBackground(
+                            style.colors.backgroundsBottomNavigation,
+                            for: .navigationBar
+                        )
+                }
+            }
+            .animation(.easeIn(duration: 0.2), value: router.root)
+            .tint(style.colors.foregroundsPrimary)
+            .environment(\.style, AppStyle())
         }
-        .modelContainer(sharedModelContainer)
     }
 }

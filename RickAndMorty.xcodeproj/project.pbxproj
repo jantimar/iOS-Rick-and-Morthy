@@ -6,6 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3D07864F2D26FDB700FD7BAA /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 3D07864E2D26FDB700FD7BAA /* APIService */; };
+		3D289C962D26CAC40042ACD7 /* Locs in Frameworks */ = {isa = PBXBuildFile; productRef = 3D289C952D26CAC40042ACD7 /* Locs */; };
+		3D9103A52D201A8B009A3EE2 /* Style in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103A42D201A8B009A3EE2 /* Style */; };
+		3D9103A72D209808009A3EE2 /* Organisms in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103A62D209808009A3EE2 /* Organisms */; };
+		3D9103A92D20981A009A3EE2 /* Atoms in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103A82D20981A009A3EE2 /* Atoms */; };
+		3D9103AB2D21A13B009A3EE2 /* Molecules in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103AA2D21A13B009A3EE2 /* Molecules */; };
+		3D9103AD2D21A140009A3EE2 /* Templates in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103AC2D21A140009A3EE2 /* Templates */; };
+		3DAF9AD72D23DC3D00D5651A /* RickAndMortyAPIService in Frameworks */ = {isa = PBXBuildFile; productRef = 3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */; };
+		3DAF9AF62D25EF4900D5651A /* DatabaseService in Frameworks */ = {isa = PBXBuildFile; productRef = 3DAF9AF52D25EF4900D5651A /* DatabaseService */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3D5239B72D1F019600544DD4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,14 +36,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D289C8F2D269F5C0042ACD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D5239A42D1F019400544DD4 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5239B62D1F019600544DD4 /* RickAndMortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5239C02D1F019600544DD4 /* RickAndMortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D9103AE2D21C53C009A3EE2 /* DTO */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DTO; sourceTree = "<group>"; };
+		3D9103B02D21D252009A3EE2 /* RickAndMorty.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RickAndMorty.xctestplan; sourceTree = "<group>"; };
+		3D9103B12D21D65E009A3EE2 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
+		3D9103B22D21D798009A3EE2 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utils; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3D91039E2D1F06A0009A3EE2 /* Exceptions for "RickAndMorty" folder in "RickAndMorty" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Components/Atoms,
+				Components/Molecules,
+				Components/Organisms,
+				Components/Style,
+				Components/Templates,
+			);
+			target = 3D5239A32D1F019400544DD4 /* RickAndMorty */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3D5239A62D1F019400544DD4 /* RickAndMorty */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3D91039E2D1F06A0009A3EE2 /* Exceptions for "RickAndMorty" folder in "RickAndMorty" target */,
+			);
 			path = RickAndMorty;
 			sourceTree = "<group>";
 		};
@@ -45,6 +79,11 @@
 			path = RickAndMortyUITests;
 			sourceTree = "<group>";
 		};
+		3DAF9AF32D25A7D400D5651A /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +91,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9103A92D20981A009A3EE2 /* Atoms in Frameworks */,
+				3D9103AD2D21A140009A3EE2 /* Templates in Frameworks */,
+				3D07864F2D26FDB700FD7BAA /* APIService in Frameworks */,
+				3DAF9AD72D23DC3D00D5651A /* RickAndMortyAPIService in Frameworks */,
+				3D9103A72D209808009A3EE2 /* Organisms in Frameworks */,
+				3D9103AB2D21A13B009A3EE2 /* Molecules in Frameworks */,
+				3D289C962D26CAC40042ACD7 /* Locs in Frameworks */,
+				3D9103A52D201A8B009A3EE2 /* Style in Frameworks */,
+				3DAF9AF62D25EF4900D5651A /* DatabaseService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +123,17 @@
 		3D52399B2D1F019400544DD4 = {
 			isa = PBXGroup;
 			children = (
+				3DAF9AF32D25A7D400D5651A /* Services */,
+				3D9103B22D21D798009A3EE2 /* Utils */,
+				3D9103B12D21D65E009A3EE2 /* Models */,
+				3D9103AE2D21C53C009A3EE2 /* DTO */,
+				3D9103B02D21D252009A3EE2 /* RickAndMorty.xctestplan */,
 				3D5239A62D1F019400544DD4 /* RickAndMorty */,
 				3D5239B92D1F019600544DD4 /* RickAndMortyTests */,
 				3D5239C32D1F019600544DD4 /* RickAndMortyUITests */,
+				3D9103A32D201A8B009A3EE2 /* Frameworks */,
 				3D5239A52D1F019400544DD4 /* Products */,
+				3D289C8F2D269F5C0042ACD7 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +147,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3D9103A32D201A8B009A3EE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +161,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D5239CA2D1F019600544DD4 /* Build configuration list for PBXNativeTarget "RickAndMorty" */;
 			buildPhases = (
+				3D289C982D26E1460042ACD7 /* Swiftlint */,
 				3D5239A02D1F019400544DD4 /* Sources */,
 				3D5239A12D1F019400544DD4 /* Frameworks */,
 				3D5239A22D1F019400544DD4 /* Resources */,
@@ -112,6 +175,15 @@
 			);
 			name = RickAndMorty;
 			packageProductDependencies = (
+				3D9103A42D201A8B009A3EE2 /* Style */,
+				3D9103A62D209808009A3EE2 /* Organisms */,
+				3D9103A82D20981A009A3EE2 /* Atoms */,
+				3D9103AA2D21A13B009A3EE2 /* Molecules */,
+				3D9103AC2D21A140009A3EE2 /* Templates */,
+				3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */,
+				3DAF9AF52D25EF4900D5651A /* DatabaseService */,
+				3D289C952D26CAC40042ACD7 /* Locs */,
+				3D07864E2D26FDB700FD7BAA /* APIService */,
 			);
 			productName = RickAndMorty;
 			productReference = 3D5239A42D1F019400544DD4 /* RickAndMorty.app */;
@@ -231,6 +303,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D289C982D26E1460042ACD7 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nif which swiftlint >/dev/null; then\n  swiftlint --config .swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D5239A02D1F019400544DD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -306,7 +399,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -369,7 +462,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -399,12 +492,14 @@
 				DEVELOPMENT_TEAM = 9Q6922742Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Rick & Morty";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,12 +524,14 @@
 				DEVELOPMENT_TEAM = 9Q6922742Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Rick & Morty";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,6 +657,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D07864E2D26FDB700FD7BAA /* APIService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = APIService;
+		};
+		3D289C952D26CAC40042ACD7 /* Locs */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Locs;
+		};
+		3D9103A42D201A8B009A3EE2 /* Style */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Style;
+		};
+		3D9103A62D209808009A3EE2 /* Organisms */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Organisms;
+		};
+		3D9103A82D20981A009A3EE2 /* Atoms */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Atoms;
+		};
+		3D9103AA2D21A13B009A3EE2 /* Molecules */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Molecules;
+		};
+		3D9103AC2D21A140009A3EE2 /* Templates */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Templates;
+		};
+		3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RickAndMortyAPIService;
+		};
+		3DAF9AF52D25EF4900D5651A /* DatabaseService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DatabaseService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D52399C2D1F019400544DD4 /* Project object */;
 }
