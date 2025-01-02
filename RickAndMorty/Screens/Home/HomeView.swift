@@ -24,6 +24,6 @@ struct HomeView: View {
             }
 
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(edges: .bottom)
     }
 }
