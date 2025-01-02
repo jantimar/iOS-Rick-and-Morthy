@@ -47,14 +47,14 @@ public struct TextView: View {
     public var body: some View {
         Text(text)
             .font(type.font(style: style.fonts))
-            .lineLimit(0)
+            .lineLimit(nil)
     }
 
     public init(
-        _ text: String,
+        _ text: String?,
         type: TextType = .medium
     ) {
-        self.text = text
+        self.text = text ?? ""
         self.type = type
     }
 }

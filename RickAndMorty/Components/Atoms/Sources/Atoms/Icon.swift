@@ -86,3 +86,13 @@ public struct Icon: View {
         self.state = state
     }
 }
+
+extension UIImage {
+    convenience public init?(
+        _ type: IconType,
+        size: IconSize = .small
+    ) {
+        let name = type.name + size.rawValue
+        self.init(named: name)
+    }
+}
