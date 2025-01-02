@@ -11,7 +11,7 @@ import Locs
 public enum CharacterStatus: String {
     case alive = "Alive"
     case dead = "Dead"
-    case unknown = "Unknown"
+    case unknown
 
     public var localized: String {
         switch self {

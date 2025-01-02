@@ -2,29 +2,28 @@
 //  File.swift
 //  Templates
 //
-//  Created by Jan Timar on 01.01.2025.
+//  Created by Jan Timar on 02.01.2025.
 //
 
 import SwiftUI
+import Style
+import Molecules
 
-public struct TableView<T: Identifiable, Cell: View, Footer: View>: View {
+public struct TableView<Content: View, Header: View, Footer: View>: View {
 
     @Environment(\.style) private var style
-    @Environment(\.isSearching) private var isSearching
-    private var items: [T]
+    @Environment(\.isSearchBarActive) private var isSearching
+
+    private var header: Header
+    private var content: Content
     private var footer: Footer
-    private var cell: (T, Bool) -> Cell
-    private var action: (T) -> Void
 
     public var body: some View {
         ScrollView(.vertical) {
             LazyVStack(spacing: style.offsets.extraLarge) {
-                ForEach(items) { item in
-                    Button(
-                        action: { action(item) },
-                        label: { cell(item, isSearching) }
-                    )
-                }
+                header
+
+                content
 
                 footer
             }
@@ -33,14 +32,12 @@ public struct TableView<T: Identifiable, Cell: View, Footer: View>: View {
     }
 
     public init(
-        items: [T],
-        cell: @escaping (T, Bool) -> Cell,
-        @ViewBuilder footer: () -> Footer,
-        action: @escaping (T) -> Void
+        @ViewBuilder header: () -> Header,
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder footer: () -> Footer
     ) {
-        self.items = items
+        self.header = header()
+        self.content = content()
         self.footer = footer()
-        self.action = action
-        self.cell = cell
     }
 }

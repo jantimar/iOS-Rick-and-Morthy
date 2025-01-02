@@ -12,67 +12,79 @@ import Atoms
 import Templates
 import Organisms
 import Locs
+import Molecules
 
 struct CharactersView: View {
 
     @Environment(\.style) private var style
+    @State var isSearching: Bool = false
     @State var viewModel: CharactersViewModel
 
     var body: some View {
-        ZStack {
-            switch viewModel.characters {
-            case let .failure(text, isRetryEnabled):
-                ErrorView(
-                    text: text,
-                    action: isRetryEnabled ? viewModel.refresh : nil
-                )
-            case let .data(charactes),
-                    let .refreshing(charactes):
-                TableView(
-                    items: charactes,
-                    cell: { character, isSearching in
-                        CharacterCard(
-                            title: character.name ?? "-",
-                            subtitle: character.status?.localized,
-                            image: character.image,
-                            icon: .arrowRight,
-                            isFavorite: isSearching ? false : viewModel.isFavorite(character: character),
-                            type: isSearching ? .search : .default
+        GeometryReader { reader in
+            TableView(
+                header: {
+                    SearchBar(
+                        placeholder: localize(.charactersSearchPlaceholder),
+                        search: viewModel.search.binding,
+                        isSearching: { isSearching = $0 }
+                    )
+                },
+                content: {
+                    switch viewModel.characters {
+                    case let .failure(text, isRetryEnabled):
+                        ErrorView(
+                            text: text,
+                            action: isRetryEnabled ? viewModel.refresh : nil
                         )
-                    },
-                    footer: {
-                        if viewModel.characters.isRefreshing {
-                            HStack {
-                                ActivityIndicator()
-                                Spacer()
-                            }
-                            .padding(.horizontal, style.offsets.large * 2)
-                            .padding(.bottom, style.offsets.large * 4)
-                        } else {
-                            Spacer(minLength: style.offsets.large * 4 + 42)
-                                .onAppear(perform: viewModel.fetchNextPage)
+                        .frame(height: reader.size.height - 32 - style.offsets.extraLarge)
+                    case let .data(charactes),
+                        let .refreshing(charactes):
+                        ForEach(charactes) { character in
+                            Button(
+                                action: { viewModel.router.push(.character(character)) },
+                                label: {
+                                    CharacterCard(
+                                        title: character.name ?? "-",
+                                        subtitle: character.status?.localized,
+                                        image: character.image,
+                                        icon: .arrowRight,
+                                        isFavorite: isSearching ? false : viewModel.isFavorite(character: character),
+                                        type: isSearching ? .search : .default
+                                    )
+                                }
+                            )
                         }
-                    },
-                    action: { character in
-                        viewModel.router.push(.character(character))
+                    case .loading:
+                        ActivityIndicator()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    default:
+                        Color.clear
                     }
-                )
-                .refreshable { viewModel.refresh() }
-                .padding(.horizontal, style.offsets.extraLarge)
-            case .loading:
-                ActivityIndicator()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            default:
-                Color.clear
-            }
+                },
+                footer: {
+                    if viewModel.characters.isRefreshing {
+                        HStack {
+                            ActivityIndicator()
+                            Spacer()
+                        }
+                        .padding(.horizontal, style.offsets.large * 2)
+                        .padding(.bottom, style.offsets.large * 4)
+                    } else if viewModel.characters.data != nil {
+                        Spacer(minLength: style.offsets.large * 4 + 42)
+                            .onAppear(perform: viewModel.fetchNextPage)
+                    }
+                }
+            )
+            .environment(\.isSearchBarActive, isSearching)
+            .refreshable { viewModel.refresh() }
+            .padding(.horizontal, style.offsets.extraLarge)
         }
+        .padding(.bottom)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear(perform: viewModel.refreshFavorites)
         .navigationTitle(localize(.charactersTitle))
-        .searchable(
-            text: viewModel.search.binding,
-            placement: .navigationBarDrawer,
-            prompt: localize(.charactersSearchPlaceholder)
-        )
+        .toolbar(isSearching ? .hidden : .automatic, for: .navigationBar)
         .background(style.colors.backgroundsPrimary)
         .animation(.easeIn, value: viewModel.characters)
     }

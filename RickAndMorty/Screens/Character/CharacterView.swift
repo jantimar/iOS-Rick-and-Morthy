@@ -83,6 +83,7 @@ struct CharacterView: View {
             .padding(style.offsets.extraLarge)
         }
         .background(style.colors.backgroundsPrimary)
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: viewModel.update)
     }
 

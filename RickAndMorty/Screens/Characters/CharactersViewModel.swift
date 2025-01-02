@@ -89,10 +89,11 @@ final class CharactersViewModel {
             .sink(
                 receiveCompletion: { [weak self] completion in
                     if case let .failure(error) = completion {
-                        if error is APIError {
-                            self?.characters = .failure(localize(.errorNetwork), retry: true)
-                        } else {
+                        switch error {
+                        case .parsing:
                             self?.characters = .failure(localize(.errorNoCharactersResults))
+                        default:
+                            self?.characters = .failure(localize(.errorNetwork), retry: true)
                         }
                     }
                 },

@@ -24,7 +24,7 @@ struct FavoritesView: View {
                 ErrorView(text: text)
             case let .data(charactes),
                     let .refreshing(charactes):
-                TableView(
+                ItemsTableView(
                     items: charactes,
                     cell: { character, _ in
                         CharacterCard(
@@ -54,6 +54,7 @@ struct FavoritesView: View {
         }
         .onAppear(perform: viewModel.update)
         .navigationTitle(localize(.favoritesTitle))
+        .navigationBarTitleDisplayMode(.large)
         .background(style.colors.backgroundsPrimary)
         .animation(.easeIn, value: viewModel.characters)
     }

@@ -28,7 +28,6 @@ public struct ErrorView: View {
                 }
             }
         }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     public init(
