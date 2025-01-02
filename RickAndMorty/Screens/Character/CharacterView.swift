@@ -51,12 +51,18 @@ struct CharacterView: View {
 
                 Separator()
 
-                ValueView("Status", viewModel.character.status?.rawValue)
-                ValueView("Species", viewModel.character.species)
-                ValueView("Type", viewModel.character.type)
-                ValueView("Gender", viewModel.character.gender?.rawValue)
-                ValueView("Origin", viewModel.character.origin?.name)
-                ValueView("Location", viewModel.character.location?.name)
+                // Portrait iPhone
+                if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+                    infoSection1()
+                    infoSection2()
+                } else {
+                    // Landscape iPhone, iPad any
+                    HStack(alignment: .top, spacing: 0) {
+                        VStack(alignment: .leading, spacing: style.offsets.extraLarge, content: infoSection1)
+                        VStack(alignment: .leading, spacing: style.offsets.extraLarge, content: infoSection2)
+                    }
+
+                }
             }
             .padding(style.offsets.extraLarge)
             .background(style.colors.backgroundsTertiary)
@@ -74,5 +80,19 @@ struct CharacterView: View {
         }
         .background(style.colors.backgroundsPrimary)
         .onAppear(perform: viewModel.update)
+    }
+
+    @ViewBuilder
+    private func infoSection1() -> some View {
+        ValueView(.characterStatus, viewModel.character.status?.localized)
+        ValueView(.characterSpecies, viewModel.character.species)
+        ValueView(.characterType, viewModel.character.type)
+    }
+
+    @ViewBuilder
+    private func infoSection2() -> some View {
+        ValueView(.characterGender, viewModel.character.gender?.localized)
+        ValueView(.characterOrigin, viewModel.character.origin?.name)
+        ValueView(.characterLocation, viewModel.character.location?.name)
     }
 }
