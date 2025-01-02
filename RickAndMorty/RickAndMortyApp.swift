@@ -10,6 +10,7 @@ import Style
 import Templates
 import Atoms
 import Molecules
+import Organisms
 
 @main
 struct RickAndMortyApp: App {
@@ -26,7 +27,6 @@ struct RickAndMortyApp: App {
                             switch path {
                             case let .character(character):
                                 router.character(character)
-                            default: Color.clear
                             }
                         }
                         .toolbarBackground(
@@ -36,7 +36,13 @@ struct RickAndMortyApp: App {
                 }
             }
             .animation(.easeIn(duration: 0.2), value: router.root)
+            .onAppear(perform: setupUIKitAppearance)
+            .tint(style.colors.foregroundsPrimary)
             .environment(\.style, AppStyle())
         }
+    }
+
+    private func setupUIKitAppearance() {
+        UISearchBar.setupAppearance()
     }
 }

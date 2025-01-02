@@ -13,6 +13,7 @@
 		3D9103AB2D21A13B009A3EE2 /* Molecules in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103AA2D21A13B009A3EE2 /* Molecules */; };
 		3D9103AD2D21A140009A3EE2 /* Templates in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103AC2D21A140009A3EE2 /* Templates */; };
 		3DAF9AD72D23DC3D00D5651A /* RickAndMortyAPIService in Frameworks */ = {isa = PBXBuildFile; productRef = 3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */; };
+		3DAF9AF62D25EF4900D5651A /* DatabaseService in Frameworks */ = {isa = PBXBuildFile; productRef = 3DAF9AF52D25EF4900D5651A /* DatabaseService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D289C8F2D269F5C0042ACD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D5239A42D1F019400544DD4 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5239B62D1F019600544DD4 /* RickAndMortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5239C02D1F019600544DD4 /* RickAndMortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,8 +42,6 @@
 		3D9103B02D21D252009A3EE2 /* RickAndMorty.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RickAndMorty.xctestplan; sourceTree = "<group>"; };
 		3D9103B12D21D65E009A3EE2 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
 		3D9103B22D21D798009A3EE2 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utils; sourceTree = "<group>"; };
-		3D9103B42D21F9A3009A3EE2 /* APIService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = APIService; sourceTree = "<group>"; };
-		3D9103B52D220DBE009A3EE2 /* RickAndMortyAPIService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RickAndMortyAPIService; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -77,6 +77,11 @@
 			path = RickAndMortyUITests;
 			sourceTree = "<group>";
 		};
+		3DAF9AF32D25A7D400D5651A /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,7 @@
 				3D9103A72D209808009A3EE2 /* Organisms in Frameworks */,
 				3D9103AB2D21A13B009A3EE2 /* Molecules in Frameworks */,
 				3D9103A52D201A8B009A3EE2 /* Style in Frameworks */,
+				3DAF9AF62D25EF4900D5651A /* DatabaseService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +119,7 @@
 		3D52399B2D1F019400544DD4 = {
 			isa = PBXGroup;
 			children = (
-				3D9103B32D21F6DE009A3EE2 /* Services */,
+				3DAF9AF32D25A7D400D5651A /* Services */,
 				3D9103B22D21D798009A3EE2 /* Utils */,
 				3D9103B12D21D65E009A3EE2 /* Models */,
 				3D9103AE2D21C53C009A3EE2 /* DTO */,
@@ -123,6 +129,7 @@
 				3D5239C32D1F019600544DD4 /* RickAndMortyUITests */,
 				3D9103A32D201A8B009A3EE2 /* Frameworks */,
 				3D5239A52D1F019400544DD4 /* Products */,
+				3D289C8F2D269F5C0042ACD7 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,15 +148,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3D9103B32D21F6DE009A3EE2 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				3D9103B52D220DBE009A3EE2 /* RickAndMortyAPIService */,
-				3D9103B42D21F9A3009A3EE2 /* APIService */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +176,7 @@
 				3D9103AA2D21A13B009A3EE2 /* Molecules */,
 				3D9103AC2D21A140009A3EE2 /* Templates */,
 				3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */,
+				3DAF9AF52D25EF4900D5651A /* DatabaseService */,
 			);
 			productName = RickAndMorty;
 			productReference = 3D5239A42D1F019400544DD4 /* RickAndMorty.app */;
@@ -653,6 +652,10 @@
 		3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RickAndMortyAPIService;
+		};
+		3DAF9AF52D25EF4900D5651A /* DatabaseService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DatabaseService;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

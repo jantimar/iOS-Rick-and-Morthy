@@ -24,7 +24,7 @@ final class Router {
 
     private let injection: InjectionContainer
 
-    init(injection: InjectionContainer = .init()) {
+    init(injection: InjectionContainer) {
         self.injection = injection
     }
 
@@ -41,12 +41,14 @@ final class Router {
     @ObservationIgnored
     private lazy var charactersViewModel = CharactersViewModel(
         apiService: injection.apiService,
+        databaseService: injection.favoritesDatabaseService,
         router: self
     )
 
     @ObservationIgnored
     private lazy var favoritesViewModel = FavoritesViewModel(
         apiService: injection.apiService,
+        databaseService: injection.favoritesDatabaseService,
         router: self
     )
 }
@@ -73,6 +75,7 @@ extension Router {
             viewModel: .init(
                 character: character,
                 apiService: injection.apiService,
+                databaseService: injection.favoritesDatabaseService,
                 router: self
             )
         )
