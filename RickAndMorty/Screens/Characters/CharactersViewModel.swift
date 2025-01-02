@@ -10,6 +10,7 @@ import Combine
 import RickAndMortyAPIService
 import Models
 import DatabaseService
+import Locs
 
 @Observable
 final class CharactersViewModel {
@@ -87,7 +88,7 @@ final class CharactersViewModel {
             .sink(
                 receiveCompletion: { [weak self] completion in
                     if case .failure = completion {
-                        self?.characters = .failure("No characters found")
+                        self?.characters = .failure(localize(.errorNoCharactersResults))
                     }
                 },
                 receiveValue: { [weak self] data in

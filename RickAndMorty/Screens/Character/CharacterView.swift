@@ -14,6 +14,8 @@ import Models
 struct CharacterView: View {
     @Environment(\.style) private var style
     @State var viewModel: CharacterViewModel
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
 
     var body: some View {
         ScrollView(.vertical) {
@@ -24,13 +26,13 @@ struct CharacterView: View {
                         .cornerRadius(style.offsets.medium)
 
                     VStack(alignment: .leading, spacing: style.offsets.extraLarge) {
-                        TextView("Name", type: .medium)
+                        TextView(.characterName, type: .medium)
                             .foregroundStyle(style.colors.foregroundsSecondary)
 
                         TextView(viewModel.character.name, type: .headline2)
                             .foregroundStyle(style.colors.foregroundsPrimary)
                     }
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                     if let isFavorite = viewModel.isFavorite {
                         Button(
@@ -56,7 +58,7 @@ struct CharacterView: View {
                 ValueView("Origin", viewModel.character.origin?.name)
                 ValueView("Location", viewModel.character.location?.name)
             }
-            .padding(16)
+            .padding(style.offsets.extraLarge)
             .background(style.colors.backgroundsTertiary)
             .clipShape(.rect(cornerRadius: style.offsets.extraLarge))
             .background(
@@ -68,7 +70,7 @@ struct CharacterView: View {
                         y: 2
                     )
             )
-            .padding(16)
+            .padding(style.offsets.extraLarge)
         }
         .background(style.colors.backgroundsPrimary)
         .onAppear(perform: viewModel.update)

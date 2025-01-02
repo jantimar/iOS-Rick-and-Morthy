@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Style
+import Locs
 
 public enum TextType {
     case headline1
@@ -55,6 +56,14 @@ public struct TextView: View {
         type: TextType = .medium
     ) {
         self.text = text ?? ""
+        self.type = type
+    }
+
+    public init(
+        _ key: LocKey,
+        type: TextType = .medium
+    ) {
+        self.text = localize(key)
         self.type = type
     }
 }

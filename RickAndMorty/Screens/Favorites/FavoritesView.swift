@@ -11,6 +11,7 @@ import Style
 import Atoms
 import Templates
 import Organisms
+import Locs
 
 struct FavoritesView: View {
 
@@ -31,7 +32,7 @@ struct FavoritesView: View {
                     cell: { character, _ in
                         CharacterCard(
                             title: character.name ?? "-",
-                            subtitle: character.status?.rawValue,
+                            subtitle: character.status?.localized,
                             image: character.image,
                             icon: .arrowRight,
                             isFavorite: true,
@@ -55,7 +56,7 @@ struct FavoritesView: View {
             }
         }
         .onAppear(perform: viewModel.update)
-        .navigationTitle("Favorites")
+        .navigationTitle(localize(.favoritesTitle))
         .background(style.colors.backgroundsPrimary)
         .animation(.easeIn, value: viewModel.characters)
     }

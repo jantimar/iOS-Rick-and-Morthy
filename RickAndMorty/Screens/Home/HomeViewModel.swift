@@ -20,7 +20,5 @@ final class HomeViewModel {
         self.setup()
     }
 
-    private func setup() {
-        
-    }
+    private func setup() { }
 }

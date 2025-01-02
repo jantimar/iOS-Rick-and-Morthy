@@ -6,9 +6,21 @@
 //
 
 import Foundation
+import Locs
 
 public enum CharacterStatus: String {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "Unknown"
+
+    public var localized: String {
+        switch self {
+        case .alive:
+            return localize(.characterStatusAlive)
+        case .dead:
+            return localize(.characterStatusDead)
+        case .unknown:
+            return localize(.characterStatusUnknown)
+        }
+    }
 }

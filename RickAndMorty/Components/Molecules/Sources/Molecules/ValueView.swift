@@ -8,6 +8,7 @@
 import SwiftUI
 import Style
 import Atoms
+import Locs
 
 public struct ValueView: View {
     @Environment(\.style) private var style
@@ -36,6 +37,12 @@ public struct ValueView: View {
 
     public init(_ name: String, _ value: String?) {
         self.name = name
+        self.value = value
+    }
+
+
+    public init(_ key: LocKey, _ value: String?) {
+        self.name = localize(key)
         self.value = value
     }
 }

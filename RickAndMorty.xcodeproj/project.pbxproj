@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D289C962D26CAC40042ACD7 /* Locs in Frameworks */ = {isa = PBXBuildFile; productRef = 3D289C952D26CAC40042ACD7 /* Locs */; };
 		3D9103A52D201A8B009A3EE2 /* Style in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103A42D201A8B009A3EE2 /* Style */; };
 		3D9103A72D209808009A3EE2 /* Organisms in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103A62D209808009A3EE2 /* Organisms */; };
 		3D9103A92D20981A009A3EE2 /* Atoms in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9103A82D20981A009A3EE2 /* Atoms */; };
@@ -94,6 +95,7 @@
 				3DAF9AD72D23DC3D00D5651A /* RickAndMortyAPIService in Frameworks */,
 				3D9103A72D209808009A3EE2 /* Organisms in Frameworks */,
 				3D9103AB2D21A13B009A3EE2 /* Molecules in Frameworks */,
+				3D289C962D26CAC40042ACD7 /* Locs in Frameworks */,
 				3D9103A52D201A8B009A3EE2 /* Style in Frameworks */,
 				3DAF9AF62D25EF4900D5651A /* DatabaseService in Frameworks */,
 			);
@@ -177,6 +179,7 @@
 				3D9103AC2D21A140009A3EE2 /* Templates */,
 				3DAF9AD62D23DC3D00D5651A /* RickAndMortyAPIService */,
 				3DAF9AF52D25EF4900D5651A /* DatabaseService */,
+				3D289C952D26CAC40042ACD7 /* Locs */,
 			);
 			productName = RickAndMorty;
 			productReference = 3D5239A42D1F019400544DD4 /* RickAndMorty.app */;
@@ -629,6 +632,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3D289C952D26CAC40042ACD7 /* Locs */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Locs;
+		};
 		3D9103A42D201A8B009A3EE2 /* Style */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Style;

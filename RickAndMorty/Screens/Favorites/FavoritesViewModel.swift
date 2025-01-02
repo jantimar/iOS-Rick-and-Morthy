@@ -10,6 +10,7 @@ import Combine
 import RickAndMortyAPIService
 import DatabaseService
 import Models
+import Locs
 
 @Observable
 final class FavoritesViewModel {
@@ -65,7 +66,7 @@ final class FavoritesViewModel {
         databaseService?.charactersPublisher()
             .sink(receiveValue: { [weak self] characters in
                 guard characters.count > 0 else {
-                    self?.characters = .failure("No favorites yet")
+                    self?.characters = .failure(localize(.errorNoFavorites))
                     return
                 }
                 self?.charactersValueSubject.value = characters

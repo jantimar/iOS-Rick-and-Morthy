@@ -13,11 +13,12 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Style", path: "Style"),
-        .package(name: "Atoms", path: "Atoms")
+        .package(name: "Atoms", path: "Atoms"),
+        .package(name: "Locs", path: "../../Services/Locs")
     ],
     targets: [
         .target(
             name: "Molecules",
-            dependencies: ["Style", "Atoms"])
+            dependencies: ["Style", "Atoms", "Locs"])
     ]
 )

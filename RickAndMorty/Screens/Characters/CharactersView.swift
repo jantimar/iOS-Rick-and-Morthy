@@ -11,6 +11,7 @@ import Style
 import Atoms
 import Templates
 import Organisms
+import Locs
 
 struct CharactersView: View {
 
@@ -32,7 +33,7 @@ struct CharactersView: View {
                     cell: { character, isSearching in
                         CharacterCard(
                             title: character.name ?? "-",
-                            subtitle: character.status?.rawValue,
+                            subtitle: character.status?.localized,
                             image: character.image,
                             icon: .arrowRight,
                             isFavorite: isSearching ? false : viewModel.isFavorite(character: character),
@@ -66,11 +67,11 @@ struct CharactersView: View {
             }
         }
         .onAppear(perform: viewModel.refreshFavorites)
-        .navigationTitle("Characters")
+        .navigationTitle(localize(.charactersTitle))
         .searchable(
             text: viewModel.search.binding,
             placement: .navigationBarDrawer,
-            prompt: "Search character"
+            prompt: localize(.charactersSearchPlaceholder)
         )
         .background(style.colors.backgroundsPrimary)
         .animation(.easeIn, value: viewModel.characters)
