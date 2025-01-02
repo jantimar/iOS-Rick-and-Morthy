@@ -37,3 +37,5 @@
 "character_gender.male" = "Male";
 "character_gender.genderless" = "Genderless";
 "character_gender.unknown" = "Unknown";
+
+"cancel" = "Cancel";

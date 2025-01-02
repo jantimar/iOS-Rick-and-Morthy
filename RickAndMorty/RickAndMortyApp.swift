@@ -39,15 +39,8 @@ struct RickAndMortyApp: App {
                 }
             }
             .animation(.easeIn(duration: 0.2), value: router.root)
-            .onAppear(perform: setupUIKitAppearance)
             .tint(style.colors.foregroundsPrimary)
             .environment(\.style, AppStyle())
         }
-    }
-
-    private func setupUIKitAppearance() {
-        UISearchBar.setupAppearance(
-            color: UIColor(colorScheme == .dark ? style.colors.iconsPrimary : style.colors.iconsSecondary)
-        )
     }
 }

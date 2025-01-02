@@ -22,7 +22,6 @@ struct HomeView: View {
             case .favorite:
                 viewModel.router.favorites()
             }
-
         }
         .ignoresSafeArea(edges: .bottom)
     }

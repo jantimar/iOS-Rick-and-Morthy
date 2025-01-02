@@ -40,6 +40,8 @@ public enum LocKey: String {
     case characterGenderGenderless = "character_gender.genderless"
     case characterGenderUnknown = "character_gender.unknown"
 
+    case cancel = "cancel"
+
 }
 
 extension LocKey {
