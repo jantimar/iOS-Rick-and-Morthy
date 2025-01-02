@@ -15,6 +15,7 @@ import Organisms
 @main
 struct RickAndMortyApp: App {
     @Environment(\.style) private var style
+    @Environment(\.colorScheme) private var colorScheme
     @Bindable private var router = Router(
         injection: .init(configuration: Configuration())
     )
@@ -45,6 +46,8 @@ struct RickAndMortyApp: App {
     }
 
     private func setupUIKitAppearance() {
-        UISearchBar.setupAppearance()
+        UISearchBar.setupAppearance(
+            color: UIColor(colorScheme == .dark ? style.colors.iconsPrimary : style.colors.iconsSecondary)
+        )
     }
 }

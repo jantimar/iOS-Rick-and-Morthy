@@ -38,10 +38,9 @@ public struct BottomNavigationBar<BarButton: BottomBarButtonProtocol>: View {
         }
         .padding(.horizontal, style.offsets.extraExtraLarge)
         .padding(.vertical, style.offsets.large)
-        .background(style.colors.backgroundsBottomNavigation)
-        .clipShape(.capsule)
         .background(
-            RoundedRectangle(cornerRadius: 31)
+            Capsule()
+                .fill(style.colors.backgroundsBottomNavigation)
                 .shadow(color: .black.opacity(0.16), radius: 16, x: 0, y: 2)
         )
     }

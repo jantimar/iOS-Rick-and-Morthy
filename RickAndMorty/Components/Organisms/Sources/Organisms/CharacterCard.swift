@@ -17,6 +17,7 @@ public enum CharacterCardType {
 public struct CharacterCard: View {
 
     @Environment(\.style) private var style
+    @Environment(\.colorScheme) private var colorScheme
 
     private let title: String?
     private let subtitle: String?
@@ -90,7 +91,8 @@ public struct CharacterCard: View {
     private var backgroundColor: Color {
         switch type {
         case .search: return .clear
-        case .default: return style.colors.backgroundsTertiary
+        case .default:
+            return colorScheme == .dark ? style.colors.backgroundsSecondary : style.colors.backgroundsTertiary
         }
     }
 

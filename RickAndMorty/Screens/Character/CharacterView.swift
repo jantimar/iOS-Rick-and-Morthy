@@ -13,9 +13,11 @@ import Models
 
 struct CharacterView: View {
     @Environment(\.style) private var style
-    @State var viewModel: CharacterViewModel
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.colorScheme) private var colorScheme
+
+    @State var viewModel: CharacterViewModel
 
     var body: some View {
         ScrollView(.vertical) {
@@ -65,7 +67,9 @@ struct CharacterView: View {
                 }
             }
             .padding(style.offsets.extraLarge)
-            .background(style.colors.backgroundsTertiary)
+            .background(
+                colorScheme == .dark ? style.colors.backgroundsSecondary : style.colors.backgroundsTertiary
+            )
             .clipShape(.rect(cornerRadius: style.offsets.extraLarge))
             .background(
                 RoundedRectangle(cornerRadius: style.offsets.extraLarge)
