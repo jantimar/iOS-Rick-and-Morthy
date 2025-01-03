@@ -72,7 +72,7 @@ struct CharactersView: View {
                         .padding(.bottom, style.offsets.large * 4)
                     } else if viewModel.characters.data != nil {
                         Spacer(minLength: style.offsets.large * 4 + 42)
-                            .onAppear(perform: viewModel.fetchNextPage)
+                            .onAppear(perform: { viewModel.fetchNextPage() })
                     }
                 }
             )

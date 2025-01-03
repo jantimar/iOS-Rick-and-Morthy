@@ -13,6 +13,9 @@ public struct PageInfo {
     public let next: String?
     public let prev: String?
 
+    /// Return true when next page dont exist
+    public var isLast: Bool { next == nil }
+
     // MARK: - Initializers
 
     public init(

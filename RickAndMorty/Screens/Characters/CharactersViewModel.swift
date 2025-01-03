@@ -58,7 +58,7 @@ final class CharactersViewModel {
             .removeDuplicates()
             .sink(receiveValue: { [weak self] _ in
                 self?.page = 1
-                self?.fetchNextPage()
+                self?.fetchNextPage(force: true)
             })
             .store(in: &disposBag)
     }
@@ -66,7 +66,7 @@ final class CharactersViewModel {
     func refresh() {
         page = 1
         fetchedPages = []
-        fetchNextPage()
+        fetchNextPage(force: true)
     }
 
     func refreshFavorites() {
@@ -77,7 +77,9 @@ final class CharactersViewModel {
             .store(in: &disposBag)
     }
 
-    func fetchNextPage() {
+    func fetchNextPage(force: Bool = false) {
+        guard fetchedPages.last?.info?.isLast != true || force else { return  }
+
         if let data = characters.data, data.count > 0 {
             characters = .refreshing(data)
         } else {
