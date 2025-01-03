@@ -15,7 +15,7 @@ import Locs
 @Observable
 final class FavoritesViewModel {
 
-    var characters: DataState<[Character]> = .unknown
+    private(set) var characters: DataState<[Character]> = .unknown
     private var charactersValueSubject = CurrentValueSubject<[Character], Never>([])
 
     private let apiService: RickAndMortyAPIServiceCharacterProcotol

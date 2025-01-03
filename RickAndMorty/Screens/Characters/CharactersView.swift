@@ -17,7 +17,7 @@ import Molecules
 struct CharactersView: View {
 
     @Environment(\.style) private var style
-    @State var isSearching: Bool = false
+    @State private var isSearching: Bool = false
     @State var viewModel: CharactersViewModel
 
     var body: some View {
@@ -62,19 +62,7 @@ struct CharactersView: View {
                         Color.clear
                     }
                 },
-                footer: {
-                    if viewModel.characters.isRefreshing {
-                        HStack {
-                            ActivityIndicator()
-                            Spacer()
-                        }
-                        .padding(.horizontal, style.offsets.large * 2)
-                        .padding(.bottom, style.offsets.large * 4)
-                    } else if viewModel.characters.data != nil {
-                        Spacer(minLength: style.offsets.large * 4 + 42)
-                            .onAppear(perform: { viewModel.fetchNextPage() })
-                    }
-                }
+                footer: footer
             )
             .environment(\.isSearchBarActive, isSearching)
             .refreshable { viewModel.refresh() }
@@ -88,6 +76,21 @@ struct CharactersView: View {
         .toolbar(isSearching ? .hidden : .automatic, for: .navigationBar)
         .background(style.colors.backgroundsPrimary)
         .animation(.easeIn, value: viewModel.characters)
+    }
+
+    @ViewBuilder
+    private func footer() -> some View {
+        if viewModel.characters.isRefreshing {
+            HStack {
+                ActivityIndicator()
+                Spacer()
+            }
+            .padding(.horizontal, style.offsets.large * 2)
+            .padding(.bottom, style.offsets.large * 4)
+        } else if viewModel.characters.data != nil {
+            Spacer(minLength: style.offsets.large * 4 + 42)
+                .onAppear(perform: { viewModel.fetchNextPage() })
+        }
     }
 }
 

@@ -14,8 +14,8 @@ import Models
 @Observable
 final class CharacterViewModel {
 
-    var character: Character
-    var isFavorite: Bool?
+    private(set) var character: Character
+    private(set) var isFavorite: Bool?
 
     private let apiService: RickAndMortyAPIServiceCharacterProcotol
     private let databaseService: DatabaseServiceProtocol?
