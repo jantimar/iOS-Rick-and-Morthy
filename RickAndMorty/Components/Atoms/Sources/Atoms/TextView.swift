@@ -49,6 +49,7 @@ public struct TextView: View {
         Text(text)
             .font(type.font(style: style.fonts))
             .lineLimit(nil)
+            .multilineTextAlignment(.leading)
     }
 
     public init(
