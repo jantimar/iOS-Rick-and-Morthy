@@ -47,7 +47,7 @@ public struct SearchBar: View {
                 }
             }
             .padding(.horizontal, style.offsets.medium)
-            .frame(height: 32)
+            .frame(height: style.offsets.extraExtraLarge)
             .background(
                 Capsule()
                     .fill(style.colors.backgroundsSecondary)
@@ -68,7 +68,8 @@ public struct SearchBar: View {
             }
         }
         .onChange(of: isFocused) { _, value in
-            guard value else { return }
+            // Send value on change focus to true, or to false with empty search
+            guard value || search.wrappedValue.isEmpty else { return }
             isSearching(value)
         }
         .animation(.linear(duration: 0.2), value: isFocused)

@@ -37,7 +37,7 @@ struct CharactersView: View {
                             text: text,
                             action: isRetryEnabled ? viewModel.refresh : nil
                         )
-                        .frame(height: reader.size.height - 32 - style.offsets.extraLarge)
+                        .frame(height: reader.size.height - style.offsets.extraExtraLarge - style.offsets.extraLarge)
                     case let .data(charactes),
                         let .refreshing(charactes):
                         ForEach(charactes) { character in
@@ -81,6 +81,7 @@ struct CharactersView: View {
             .padding(.horizontal, style.offsets.extraLarge)
         }
         .padding(.bottom)
+        .padding(.top, isSearching ? style.offsets.small : 0)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear(perform: viewModel.refreshFavorites)
         .navigationTitle(localize(.charactersTitle))

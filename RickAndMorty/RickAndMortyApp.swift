@@ -7,10 +7,6 @@
 
 import SwiftUI
 import Style
-import Templates
-import Atoms
-import Molecules
-import Organisms
 
 @main
 struct RickAndMortyApp: App {
